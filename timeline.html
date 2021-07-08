@@ -1,0 +1,51 @@
+<html>
+
+<head>
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+  <script src="anime.js"></script>
+  <script src="noSleep.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="script.js" async></script>
+  <link rel="stylesheet" type="text/css" href="styles.css"/>
+  <!--script src="https://kit.fontawesome.com/3aa2fb674a.js" crossorigin="anonymous"></script-->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet" />
+</head>
+
+<body>
+  <select id="bg_change" onchange="changeBackground(this)" hidden>
+    <option value="#eb47e0">Pink</option>
+    <option value="#eb479e">Magenta</option>
+    <option value="#eb475d">Red</option>
+    <option value="#eb7347">Orange</option>
+    <option value="#ebb447">Orange</option>
+    <option value="#e0eb47">Yellow</option>
+    <option value="#9eeb47">Green</option>
+    <option value="#5deb47">Green</option>
+    <option value="#47eb73">Teal</option>
+    <option value="#47ebb4">Cyan</option>
+    <option value="#47e0eb">Cyan</option>
+    <option value="#479eeb">Blue</option>
+    <option value="#475deb">Blue</option>
+    <option value="#7347eb">Purple</option>
+    <option value="#b447eb">Purple</option>
+  </select>
+
+  <div id="overlay" onclick="clickApp()">
+  </div>
+
+  <div id="preparation" class="app">
+    <div class="go container">GO</div>
+    <div class="end container" style="opacity: 0">END</div>
+    
+    <div class="countdown container" style="opacity: 0">5</div>
+    <div class="countdown container" style="opacity: 0">4</div>
+    <div class="countdown container" style="opacity: 0">3</div>
+    <div class="countdown container" style="opacity: 0">2</div>
+    <div class="countdown container" style="opacity: 0">1</div>
+    <div class="countdown container" style="opacity: 0">0</div>
+  </div>
+
+
+</body>
+
+</html>
