@@ -66,6 +66,6 @@ async function signGoogle()  {
 function getClickFunction(e) {
   return function () {
     console.log(e);
-    window.location = '/timeline.html?workout=' + e;
+    window.location = '/hex.html?workout=' + e;
   }
 }
