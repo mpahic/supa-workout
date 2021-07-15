@@ -14,11 +14,29 @@ var workout;
 (async () => {
   let { data: workouts, error } = await supabase
     .from('workout')
-    .select('name,background,json')
+    .select('id,name,background,json')
     .eq('id', getParameterByName('workout'));
 
+  var storedWorkouts = [];
+  if(localStorage.recentWorkouts) {
+    storedWorkouts = JSON.parse(localStorage.recentWorkouts);
+    for (var i = 0; i < storedWorkouts.length; i++) {
+      var storedWorkout = storedWorkouts[i];
+      if(storedWorkout.id == workouts[0].id) {
+        storedWorkouts.splice(i, 1);
+      }
+    };
+    if(storedWorkouts.length >= 2) {
+      storedWorkouts.splice(0, 1);
+    }
+  } else {
+    storedWorkouts = new Array();
+  }
+  storedWorkouts[storedWorkouts.length] =workouts[0];
+  localStorage.recentWorkouts =  JSON.stringify(storedWorkouts);
   preloadWorkout(workouts[0].name, workouts[0].background, workouts[0].json);
 })();
+
 
 function getParameterByName(name, url = window.location.href) {
   name = name.replace(/[\[\]]/g, '\\$&');
